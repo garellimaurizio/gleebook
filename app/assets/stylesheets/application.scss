@@ -1,0 +1,287 @@
+/*
+
+CSS for gleebook.eu
+=============
+
+Author:  Maurizio Garelli
+
+
+COLOUR REFERENCES
+#c0a000
+#e0c000
+#c0c000
+#404020
+#202020
+
+
+Blu/grigio: #96ADC8
+Verdino: #D7FFAB
+Giallino: #FCFF6C
+Arancio chiaro: #D89D6A
+Marrone: #6D454C
+
+Blu/verde: #6DD3CE
+verde: #C8E9A0
+salmone: #F7A278			****
+fucsia: #A13D63
+marrone: #351E29
+
+
+*/
+$body-bg: #fcd496;
+//$body-bg: #dffaf0;
+
+$navbar-default-bg: #E2B186;
+//$navbar-default-bg: #6bc68b;
+
+
+
+$panel-primary-heading-bg: #f9bda0;
+$panel-primary-border: transparent;
+//#78cdf7;
+
+//$gray-base: #6D454C;
+$brand-primary: #96ADC8;
+/*
+$brand-success: ;
+$brand-info: ;
+$brand-warning: ;
+$brand-danger: ;
+*/
+
+
+
+$navbar-default-bg: #FDE792;
+//$navbar-default-bg: #FFEEAD;
+$body-bg: lighten(#FFEEAD, 10%);
+
+$panel-primary-heading-bg: darken(#FECD86, 10%);
+$panel-primary-heading-bg: #916C80;
+
+
+$panel-primary-heading-bg: #46c7c1;
+$brand-primary: #46c7c1;
+//$btn-primary-bg: #A0CA92;//verdino
+//$btn-primary-bg: #55917F;
+
+//$brand-primary: lighten(#46c7c1, 2%);
+
+
+$panel-footer-bg: transparent;
+
+
+$font-family-sans-serif: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+body { padding-top: 70px; }
+/*
+.navbar-right {
+  margin-right: 0px;
+}
+*/
+.panel-primary {
+	border: none;
+//	margin: 0px 5px;
+
+	.row {
+		margin: 0;
+	}
+	
+	.view-like {
+		color: darken($panel-primary-text, 10%);
+		
+		[class*="col-"] {
+			padding: 0 !important;
+		}
+		
+		.heart-btn {
+			background-color: transparent;
+			border: none;
+			color: darken($panel-primary-text, 10%);
+			
+			&:hover, &:active, &:focus {
+				background-color: transparent;
+				border: none;
+				color: #e64a4a;
+				-webkit-box-shadow: none;
+				-moz-box-shadow: none;
+				box-shadow: none;
+			}
+		}
+	}
+}
+
+#about {
+	p {
+		font-size: 18px;
+		line-height: 40px;
+		margin: 0;
+	}
+	
+}
+
+h2{
+		margin-bottom: 30px;
+	}
+
+#sign-in {
+	
+	
+	
+	.container {
+		background-color: #fff;
+		padding: 45px 30px 25px;
+	}
+
+	.col-sm-6:first-child {
+		padding: 0;
+	}
+	
+	.col-sm-6:nth-child(2) {
+		border-left: 1px solid #e7e7e7;
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+	
+	.responsive-width {
+    white-space: normal;
+//    width: 100px;
+}
+	
+	.social-login {
+		color: #fff;
+		
+		i {
+			padding-right: 10px;
+		}
+		
+		.btn-facebook {
+			background: #3b5998;
+		}
+		.btn-twitter {
+			background: #55acee;
+		}
+		.btn-google {
+			background: #dd4b39;
+		}
+	}
+
+	#sign-up {
+		background-color: $navbar-default-bg;
+		text-align: center;
+		padding: 20px 0;
+		margin: 20px;
+		
+	}
+	
+	
+	input {
+		margin-bottom: 20px;
+	}
+	
+	label {
+		margin-left: 20px;
+		margin-bottom: 40px;
+		text-align: left;
+	}
+	
+	button {
+		margin: 0px 0 20px 0;
+	}
+	
+	.form-signin {
+		text-align: center;
+		
+		button {
+			margin-bottom: 40px;
+		}
+	}
+	
+}
+
+
+.panel-footer {
+	color: #b2b2b2;
+	border: none;
+	font-size: smaller;
+}
+
+
+#banner {
+	margin: 0px 0 35px;
+	text-align: center;
+//	text-transform: uppercase;
+}
+
+
+#footer {
+	text-align: center;
+	line-height: 20px;
+	padding: 12px 0;
+	font-size: 14px;
+	p {
+		margin: 0;
+	}
+	margin-top: 50px;
+	
+	background-color: $navbar-default-bg;
+}
+
+@media screen and (min-width: 1px) and (max-width: 767px){
+    #columns[data-columns]::before {
+        content: '2 .col-xs-6';
+    }
+}
+@media screen and (min-width:768px) and (max-width: 991px){
+    #columns[data-columns]::before {
+        content: '3 .col-sm-4';
+    }
+}
+@media screen and (min-width:992px) and (max-width: 9999px){
+    #columns[data-columns]::before {
+        content: '4 .col-md-3';
+    }
+}
+
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+
+}
+
+/* Customized media query */
+@media (min-width: 1199px) and (max-width: 1467px) {
+
+}
+
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+@media (min-width: 768px) {
+
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+	
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+
+}
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
