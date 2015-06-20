@@ -53,6 +53,13 @@ gem 'fog'
 #A Go package for AWS Signature version 4
 gem 'aws4'
 
+
+#Simple Form
+gem 'simple_form'
+
+#Font Awesome
+gem 'font-awesome-sass'
+
 group :development, :test do
 
   # Use sqlite3 as the database for Active Record

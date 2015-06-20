@@ -172,6 +172,8 @@ GEM
     fog-xml (0.1.2)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
+    font-awesome-sass (4.3.2.1)
+      sass (~> 3.2)
     formatador (0.2.5)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
@@ -289,6 +291,9 @@ GEM
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
     shellany (0.0.1)
+    simple_form (3.1.0)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     slop (3.6.0)
     spring (1.1.3)
     sprockets (3.2.0)
@@ -331,6 +336,7 @@ DEPENDENCIES
   coffee-rails (= 4.1.0)
   faker (= 1.4.2)
   fog
+  font-awesome-sass
   guard-minitest (= 2.3.1)
   jbuilder (= 2.2.3)
   jquery-rails (= 4.0.3)
@@ -343,6 +349,7 @@ DEPENDENCIES
   rails_12factor (= 0.0.2)
   sass-rails (= 5.0.2)
   sdoc (= 0.4.0)
+  simple_form
   spring (= 1.1.3)
   sqlite3 (= 1.3.9)
   turbolinks (= 2.3.0)

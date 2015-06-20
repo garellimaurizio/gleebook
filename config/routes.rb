@@ -3,13 +3,18 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'static_pages#home'
+#  root 'static_pages#home'
+  root 'thoughts#index'
 #  get 'static_pages/home'
   
 #  get 'static_pages/about'
   get 'about'   => 'static_pages#about'
   
   get 'sign_in' => 'static_pages#sign_in'
+  
+  get 'pensieri/:slug' => 'thoughts#show'
+  
+  resources :thoughts
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
