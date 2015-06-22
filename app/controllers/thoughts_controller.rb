@@ -13,6 +13,8 @@ class ThoughtsController < ApplicationController
 	def create
 		@thought = Thought.new(params[:thought].permit(:title, :content))
 		create_slug(@thought)
+		@thought.like_counter = 0
+		@thought.visit_counter = 0
 		@thought.save
 		flash[:notice] = 'Thought succeffully posted'
 		redirect_to @thought
@@ -23,6 +25,7 @@ class ThoughtsController < ApplicationController
 			@thought = Thought.find_by slug: params[:slug]
 		else			
 			@thought = Thought.find(params[:id])
+			@thought.increment!(:visit_counter, by = 1)
 			create_slug(@thought)
 		end
 	end
@@ -37,10 +40,16 @@ class ThoughtsController < ApplicationController
 		redirect_to @thought
 	end
 		
-	
 	def destroy
 		@thought = Thought.find(params[:id])
 		@thought.destroy
+		redirect_to @thought
+	end
+	
+	def like
+		@thought = Thought.find(params[:id])
+#		(@thought.like_counter == 0) ? @thought.increment!(:like_counter, by = 1) : @thought.decrement!(:like_counter, by = 1)
+		@thought.increment!(:like_counter, by = 1)
 		redirect_to @thought
 	end
 	

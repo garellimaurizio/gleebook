@@ -29,7 +29,7 @@
 								<p><%= t.visit_counter %> views</p>
 							</div>
 							<div class="col-sm-6 text-right">
-								<p><%= t.like_counter %> <a class="btn btn-default btn-xs heart-btn" href="#" role="button"><i class="fa fa-heart"></i></a></p>
+								<p><%= t.like_counter %> <%= link_to '<i class="fa fa-heart"></i>'.html_safe, like_thought_path(t), method: :put, class: like_button_link(t)%></p>
 							</div>
 						</div>
 					</div><!-- end panel-heading -->

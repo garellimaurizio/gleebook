@@ -123,6 +123,15 @@ body { padding-top: 70px; }
 				box-shadow: none;
 			}
 		}
+		
+		.heart-btn-liked {
+			@extend .heart-btn;
+			color: #e64a4a;
+			
+			&:hover, &:active, &:focus {
+				color: darken($panel-primary-text, 10%);
+			}
+		}
 	}
 }
 

@@ -60,6 +60,9 @@ gem 'simple_form'
 #Font Awesome
 gem 'font-awesome-sass'
 
+#Devise
+gem 'devise'
+
 group :development, :test do
 
   # Use sqlite3 as the database for Active Record
