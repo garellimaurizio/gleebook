@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 #  get 'static_pages/about'
   get 'about'   => 'static_pages#about'
   
-  get 'sign_in' => 'static_pages#sign_in'
+#  get 'sign_in' => 'static_pages#sign_in'
   
   get 'pensieri/:slug' => 'thoughts#show'
   

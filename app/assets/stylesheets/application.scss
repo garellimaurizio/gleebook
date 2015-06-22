@@ -190,7 +190,7 @@ h2{
 		}
 	}
 
-	#sign-up {
+	#sign-up-cta {
 		background-color: $navbar-default-bg;
 		text-align: center;
 		padding: 20px 0;
@@ -203,10 +203,14 @@ h2{
 		margin-bottom: 20px;
 	}
 	
-	label {
-		margin-left: 20px;
-		margin-bottom: 40px;
+	.checkbox {
 		text-align: left;
+				margin-bottom: 40px;	
+			label {
+		//		margin-left: 20px;
+//				margin-bottom: 40px;
+//				text-align: left;
+			}
 	}
 	
 	button {
@@ -222,6 +226,25 @@ h2{
 	}
 	
 }
+
+#sign-up {
+	@extend #sign-in;
+}
+
+#pwd-reset {
+	@extend #sign-in;
+}
+
+.form-header{
+	margin: -20px 0 30px 0;
+}
+
+.help-block {
+	font-size: 12px;
+	text-align: left;
+	margin: -10px 0 0;
+}
+
 
 .title {
 	text-align: center;
