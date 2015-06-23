@@ -1,5 +1,5 @@
 class ThoughtsController < ApplicationController
-
+	before_action :authenticate_user!, :except => [:show, :index]
 #	before_action :create_slug(@thought), only: :show
 
 	def index
@@ -15,6 +15,7 @@ class ThoughtsController < ApplicationController
 		create_slug(@thought)
 		@thought.like_counter = 0
 		@thought.visit_counter = 0
+		@thought.user_id = current_user.id
 		@thought.save
 		flash[:notice] = 'Thought succeffully posted'
 		redirect_to @thought

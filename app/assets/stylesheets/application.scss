@@ -148,6 +148,60 @@ h2{
 		margin-bottom: 30px;
 	}
 
+
+.user_sex{
+	text-align: left;
+	
+	.radio_buttons{
+		display: inline !important;
+	}
+	
+	.radio {
+		display: inline;
+		margin-left: 15px;
+	}
+	
+	label {
+		margin-right: 20px;
+		display: inline;
+	}
+
+}
+
+.myform-inline {
+	text-align: left;
+	margin-bottom: 15px;
+
+	date {
+		display: inline-block;
+	}
+	
+	#user_birthday_1i {
+		width: 64px;
+		@extend date;
+		margin: 0 5px 15px 0px;
+	}
+	
+	#user_birthday_2i {
+		width: 104px;
+		@extend date;
+		margin: 0 5px 15px 5px;
+	}
+	
+	#user_birthday_3i {
+		width: 48px;
+		@extend date;
+		margin: 0 0 15px 5px;
+	}
+	
+	
+}
+
+label {
+	display: block;
+	text-align: left;
+}
+
 #sign-in {
 	
 	
@@ -241,8 +295,8 @@ h2{
 
 .help-block {
 	font-size: 12px;
-	text-align: left;
-	margin: -10px 0 0;
+	text-align: left;	
+	margin-top: -10px;
 }
 
 

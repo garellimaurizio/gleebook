@@ -26,8 +26,11 @@
 
 <body>
 	<%= render 'layouts/navbar' %>
-	 <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+
+    <%= render partial: 'layouts/flash_messages', flash: flash %>
+    <script>
+	    setTimeout("$('.alert-dismissible').fadeOut('slow')", 1000)
+	</script>
 	
 	
 	<%= yield %>
