@@ -10,6 +10,14 @@ class User < ActiveRecord::Base
 #  validates :sex, presence: { message: "Sex required" }
 #  validates :birthday, presence: { message: "Birthday required" }
 
-	has_many :thoughts
+  has_many :thoughts, dependent: :destroy
+  
+  
+#  def to_param
+#	username
+#  end
+
+  has_many :liked_thoughts, dependent: :destroy
+  has_many :favorite_thoughts, dependent: :destroy
   
 end

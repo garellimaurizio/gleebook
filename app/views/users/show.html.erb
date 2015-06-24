@@ -1,13 +1,5 @@
-    <div class="container">
-<!--       
-         <div class="filter-options">
-          <button class="btn btn-default" data-group="wallpaper">Wallpapers</button>
-          <button class="btn btn-default" data-group="graphics">Graphic Design</button>
-          <button class="btn btn-default" data-group="photography">Photos</button>
-          <button class="btn btn-default" data-group="3d">3D Renders</button>
-        </div>      
--->      
-            
+<div class="container">
+		<h4>Thought of <%= @user.username %></h4>
 	    <div id="grid" class="row">
 
 			<% @thoughts.each do |t| %>
@@ -21,9 +13,7 @@
 								<h4><%= link_to t.title, t %></h4>
 							</div>
 							<div class="col-sm-1 text-right">
-								<% if current_user == t.user %>
 								<%= link_to '<i class="fa fa-times"></i>'.html_safe, thought_path(t), method: :delete, data: {confirm: "Are you sure?"}, class: "pull-right" %>
-								<% end %>
 							</div>
 						</div>
 						<div class="row view-like">
@@ -43,7 +33,7 @@
 							<p><%= t.created_at %></p>
 						</div>
 						<div class="row text-right">
-							<p>Posted by: <%= link_to !(t.anonymus?) ? t.user.username : "anonymus", !(t.anonymus?) ? t.user : "/users/anonymus" %></a></p>
+							<p>Posted by: <%= link_to !(t.anonymus?) ? t.user.username : "anonymus", current_user %></a></p>
 						</div>
 					</div><!-- end panel-footer -->
 				</div><!-- end panel-primary -->

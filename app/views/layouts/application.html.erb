@@ -26,7 +26,7 @@
 
 <body>
 	<%= render 'layouts/navbar' %>
-
+<%= params.inspect %>
     <%= render partial: 'layouts/flash_messages', flash: flash %>
     <script>
 	    setTimeout("$('.alert-dismissible').fadeOut('slow')", 1000)

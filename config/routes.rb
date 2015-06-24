@@ -15,11 +15,15 @@ Rails.application.routes.draw do
   
   get 'pensieri/:slug' => 'thoughts#show'
   
+  resources :users, only: [:show]
+  
   resources :thoughts do
 	  member do
 		  put :like
 	  end
   end
+  
+#  match '/:id', :to => "users#show", :as => :user, :via => :get
   
 
   # Example of regular route:

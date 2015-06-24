@@ -11,7 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623183242) do
+ActiveRecord::Schema.define(version: 20150624175949) do
+
+  create_table "favorite_thoughts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "thought_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "favorite_thoughts", ["thought_id"], name: "index_favorite_thoughts_on_thought_id"
+  add_index "favorite_thoughts", ["user_id", "thought_id"], name: "index_favorite_thoughts_on_user_id_and_thought_id", unique: true
+  add_index "favorite_thoughts", ["user_id"], name: "index_favorite_thoughts_on_user_id"
+
+  create_table "liked_thoughts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "thought_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "liked_thoughts", ["thought_id"], name: "index_liked_thoughts_on_thought_id"
+  add_index "liked_thoughts", ["user_id", "thought_id"], name: "index_liked_thoughts_on_user_id_and_thought_id", unique: true
+  add_index "liked_thoughts", ["user_id"], name: "index_liked_thoughts_on_user_id"
 
   create_table "thoughts", force: :cascade do |t|
     t.string   "title"
