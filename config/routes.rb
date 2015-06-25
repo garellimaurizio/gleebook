@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 	  end
   end
   
+  resources :liked_thoughts, only: [:create, :destroy]
+  
 #  match '/:id', :to => "users#show", :as => :user, :via => :get
   
 

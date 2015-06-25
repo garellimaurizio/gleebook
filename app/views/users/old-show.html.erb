@@ -1,0 +1,54 @@
+<div class="container">
+		<h4>Thought of <%= @user.username %></h4>
+	    <div id="grid" class="row">
+
+			<% @thoughts.each do |t| %>
+		    
+		    <div class="col-xs-6 col-sm-4 col-md-3" data-groups='["photography"]'>
+				
+				<div class="panel panel-primary"> 
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-sm-11">
+								<h4><%= link_to t.title, t %></h4>
+							</div>
+							<div class="col-sm-1 text-right">
+								<%= link_to '<i class="fa fa-times"></i>'.html_safe, thought_path(t), method: :delete, data: {confirm: "Are you sure?"}, class: "pull-right" %>
+							</div>
+						</div>
+						<div class="row view-like">
+							<div class="col-sm-6">
+								<p><%= t.visit_counter %> views</p>
+							</div>
+							<div class="col-sm-6 text-right">
+								<p><%= t.like_counter %> <%= link_to '<i class="fa fa-heart"></i>'.html_safe, like_thought_path(t), method: :put, class: like_button_link(t)%></p>
+								<%= form_for(current_user.liked_thoughts.build(thought_id: t.id), remote: true) do |f| %>
+								<div><%= hidden_field_tag :thought_id, t.id %></div>
+								
+								<%= f.submit "Follow", class: "btn btn-primary" %>
+								<% end %>
+							</div>
+						</div>
+					</div><!-- end panel-heading -->
+					
+					<div class="panel-body"><p><%= t.content %></p></div>
+					
+					<div class="panel-footer">
+						<div class="row text-left">
+							<p><%= t.created_at %></p>
+						</div>
+						<div class="row text-right">
+							<p>Posted by: <%= link_to !(t.anonymus?) ? t.user.username : "anonymus", current_user %></a></p>
+						</div>
+					</div><!-- end panel-footer -->
+				</div><!-- end panel-primary -->
+				
+		    </div>
+		    
+		    <% end %>
+          <!-- sizer -->
+      <div class="col-xs-6 col-sm-4 col-md-3 shuffle_sizer"></div>          
+          
+          
+	    </div><!-- /#grid -->
+    </div><!-- /.container -->

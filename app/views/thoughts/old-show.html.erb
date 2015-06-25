@@ -1,0 +1,54 @@
+<div class="container">
+	<div class="row">
+
+		<% if flash[:notice] %>
+			<div class="flash-notice">
+				<%= flash[:notice] %>
+			</div>
+		<% end %>
+		
+		<div class="col-xs-6 col-xs-offset-3">
+			
+			<div class="panel panel-primary"> 
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-sm-11">
+								<h4><%= @thought.title %></h4>
+							</div>
+							<div class="col-sm-1 text-right">
+								<%= link_to '<i class="fa fa-times"></i>'.html_safe, thought_path(@thought), method: :delete, data: {confirm: "Are you sure?"}, class: "pull-right" %>
+							</div>
+						</div>
+						<div class="row view-like">
+							<div class="col-sm-6">
+								<p><%= @thought.visit_counter %> views</p>
+							</div>
+							<div class="col-sm-6 text-right">
+<!-- 							<p><%= @thought.like_counter %> <%= link_to '<i class="fa fa-heart"></i>'.html_safe, like_thought_path(@thought), method: :put, class: like_button_link(@thought)%></p> -->
+								<%= render 'like' %>
+								<%= render 'unlike' %>
+								</p>
+							</div>
+						</div>
+					</div><!-- end panel-heading -->
+
+					<div class="panel-body">
+						<div class="row"><p class="text-right"><%= link_to "Edit", edit_thought_path(@thought) %></p></div>
+						<p><%= @thought.content %></p>
+					</div>
+
+					<div class="panel-footer">
+						<div class="row text-left">
+							<p><%= @thought.created_at %></p>
+						</div>
+						<div class="row text-right">
+							<p>Posted by: <a href="#">anonymus</a></p>
+						</div>
+					</div><!-- end panel-footer -->
+			</div><!-- end panel-primary -->
+		
+		</div>
+
+
+	</div><!-- end row -->
+</div><!-- end container -->

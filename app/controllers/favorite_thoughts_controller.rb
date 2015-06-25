@@ -1,0 +1,2 @@
+class FavoriteThoughtsController < ApplicationController
+end

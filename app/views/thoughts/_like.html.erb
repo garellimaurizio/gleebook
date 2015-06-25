@@ -1,0 +1,9 @@
+<% if !(current_user.liked_thoughts.find_by(thought_id: thought.id)) %>
+<%= form_for(current_user.liked_thoughts.build(thought_id: thought.id)) do |f| %>
+	<div><%= hidden_field_tag :thought_id, thought.id %></div>
+	<p>
+		<%= thought.like_counter %>
+		<button type="submit" name="commit" class="btn btn-default btn-xs heart-btn"><i class="fa fa-heart"></i></button>
+	</p>
+<% end %>
+<% end %>

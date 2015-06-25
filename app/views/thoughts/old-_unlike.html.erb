@@ -1,0 +1,8 @@
+<% if (current_user.liked_thoughts.find_by(thought_id: @thought.id)) %>
+	<%= form_for(current_user.liked_thoughts.find_by(thought_id: @thought.id), html: { method: :delete }) do |f|%>
+		<p>
+			<%= @thought.like_counter %>
+			<button type="submit" name="commit" class="btn btn-default btn-xs heart-btn heart-btn-liked"><i class="fa fa-heart"></i></button>
+		</p>
+	<% end %>
+<% end %>
