@@ -1,0 +1,17 @@
+<div class="container">
+    
+	    <div id="grid" class="row">
+
+			<% @favorite_thought.each do |t| %>
+		    
+		    <div class="col-xs-6 col-sm-4 col-md-3" data-groups='["photography"]'>
+				<%= render partial: 'layouts/panel', object: t.thought %>
+		    </div>
+		    
+		    <% end %>
+          <!-- sizer -->
+      <div class="col-xs-6 col-sm-4 col-md-3 shuffle_sizer"></div>          
+          
+          
+	    </div><!-- /#grid -->
+    </div><!-- /.container -->

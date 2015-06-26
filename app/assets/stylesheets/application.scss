@@ -128,10 +128,41 @@ body { padding-top: 70px; }
 			@extend .heart-btn;
 			color: #e64a4a;
 			
-			&:hover, &:active, &:focus {
+//			&:hover, &:active, &:focus {
+			&:active, &:focus {
 				color: darken($panel-primary-text, 10%);
 			}
 		}
+		
+		
+		
+	}
+	
+	.view-favorite{
+		.star-btn {
+			background-color: transparent;
+			border: none;
+			color: darken($panel-primary-text, 10%);
+			
+			&:hover, &:active, &:focus {
+				background-color: transparent;
+				border: none;
+				color: #fbfb3b;
+				-webkit-box-shadow: none;
+				-moz-box-shadow: none;
+				box-shadow: none;
+			}
+		}
+		
+		.star-btn-liked {
+			@extend .heart-btn;
+			color: #fbfb3b;
+
+			&:active, &:focus {
+				color: darken($panel-primary-text, 10%);
+			}
+		}
+		
 	}
 }
 

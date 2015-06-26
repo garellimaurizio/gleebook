@@ -14,4 +14,9 @@ class UsersController < ApplicationController
 			end
 		end
 	end
+	
+	def favorite
+		user = User.find(params[:id])
+		@liked_thougts = user.favorite_thoughts
+	end
 end

@@ -1,0 +1,7 @@
+<% if current_user && (current_user.favorite_thoughts.find_by(thought_id: thought.id)) %>
+	<%= form_for(current_user.favorite_thoughts.find_by(thought_id: thought.id), html: { method: :delete }) do |f|%>
+		<p>
+			<button type="submit" name="commit" class="btn btn-default btn-xs star-btn star-btn-liked"><i class="fa fa-star"></i></button>
+		</p>
+	<% end %>
+<% end %>

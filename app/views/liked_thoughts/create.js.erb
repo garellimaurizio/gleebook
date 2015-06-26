@@ -1,0 +1,2 @@
+$("#edit_liked_thought").html("<%= escape_javascript(render('thought/like')) %>")
+$("#followers").html('<%= @user.followers.count %>')

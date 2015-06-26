@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   
   get 'pensieri/:slug' => 'thoughts#show'
   
-  resources :users, only: [:show]
+  resources :users, only: [:show, :favorite]
   
   resources :thoughts do
 	  member do
@@ -23,7 +23,15 @@ Rails.application.routes.draw do
 	  end
   end
   
+#  resources :users do
+#	  member do
+#		  put :favorite
+#	  end
+# end
+
+  
   resources :liked_thoughts, only: [:create, :destroy]
+  resources :favorite_thoughts, only: [:create, :destroy, :index]
   
 #  match '/:id', :to => "users#show", :as => :user, :via => :get
   

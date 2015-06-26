@@ -33,6 +33,7 @@
 						
 						<% if current_user %>
 						<li><p>Welcome back <%= link_to current_user.first_name, current_user %></p></li>
+						<li class="<%= 'active' if current_page?(favorite_thoughts_path) %>"><%= link_to "Favorite", favorite_thoughts_path %></li>
 						<li class="<%= 'active' if current_page?(edit_user_registration_path) %>"><%= link_to "Settings", edit_user_registration_path %></li>
 						<li class="<%= 'active' if current_page?(destroy_user_session_path) %>"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 						<% else %>

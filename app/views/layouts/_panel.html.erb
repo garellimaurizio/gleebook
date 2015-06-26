@@ -2,10 +2,15 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-sm-11">
-								<h4>RIDIII<%= link_to panel.title, panel %></h4>
+								<h4><%= link_to panel.title, panel %></h4>
 							</div>
-							<div class="col-sm-1 text-right">
-								<%= link_to '<i class="fa fa-times"></i>'.html_safe, thought_path(panel), method: :delete, data: {confirm: "Are you sure?"}, class: "pull-right" %>
+							<div class="col-sm-1 text-right view-favorite">
+								<% if check_user_ownership?(panel) %>
+									<%= link_to '<i class="fa fa-times"></i>'.html_safe, thought_path(panel), method: :delete, data: {confirm: "Are you sure?"}, class: "pull-right" %>
+								<% else %>
+									<%= render partial: 'thoughts/favorite', locals: {thought: panel} %>
+									<%= render partial: 'thoughts/unfavorite', locals: {thought: panel} %>
+								<% end %>
 							</div>
 						</div>
 						<div class="row view-like">
@@ -14,31 +19,22 @@
 							</div>
 							<div class="col-sm-6 text-right">
 
-<%= render partial: 'thoughts/like', locals: {thought: panel} %>
-<%= render partial: 'thoughts/unlike', locals: {thought: panel} %>						
-
-
-
+								<%= render partial: 'thoughts/like', locals: {thought: panel} %>
+								<%= render partial: 'thoughts/unlike', locals: {thought: panel} %>						
 
 							</div>
 						</div>
 					</div><!-- end panel-heading -->
-					
-					
-					
-					
-					
-					
-<div class="panel-body">
-	<div class="row"><p class="text-right"><%= link_to "Edit", edit_thought_path(panel) %></p></div>
-	<p><%= panel.content %></p>
-</div>					
-					
-					
-					
-					
-					
-					
+
+
+					<div class="panel-body">
+						<div class="row">
+							<% if check_user_ownership?(panel) %>
+								<p class="text-right"><%= link_to "Edit", edit_thought_path(panel) %></p>
+							<% end %>
+						</div>
+						<p><%= panel.content %></p>
+					</div>					
 					
 					<div class="panel-footer">
 						<div class="row text-left">

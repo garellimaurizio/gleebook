@@ -1,6 +1,7 @@
 class ThoughtsController < ApplicationController
 	before_action :authenticate_user!, :except => [:show, :index]
 #	before_action :create_slug(@thought), only: :show
+#	before_action :check_user_ownership, only: [:destroy, :edit]
 
 	def index
 		@thoughts = Thought.all
@@ -68,9 +69,14 @@ class ThoughtsController < ApplicationController
 		
 	end
 	
+	
+		
 	private
 		def create_slug(thought)
 			thought.slug = (thought.title.gsub ' ', '-').downcase
 		end
+		
+	
+	
 	
 end
