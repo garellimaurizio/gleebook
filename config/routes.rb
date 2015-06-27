@@ -13,15 +13,16 @@ Rails.application.routes.draw do
   
 #  get 'sign_in' => 'static_pages#sign_in'
   
-  get 'pensieri/:slug' => 'thoughts#show'
+###  get 'pensieri/:slug' => 'thoughts#show'
   
   resources :users, only: [:show, :favorite]
   
-  resources :thoughts do
-	  member do
-		  put :like
-	  end
-  end
+  resources :thoughts  
+##  resources :thoughts do
+##	  member do
+##		  put :like
+##	  end
+##  end
   
 #  resources :users do
 #	  member do

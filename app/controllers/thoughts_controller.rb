@@ -5,6 +5,9 @@ class ThoughtsController < ApplicationController
 
 	def index
 		@thoughts = Thought.all
+		if params[:search]
+			@thoughts = Thought.search(params[:search])
+		end
 	end
 	
 	def new

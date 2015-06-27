@@ -22,17 +22,24 @@
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				    
 				    <div class="navbar-inner">
+					    
+					<%= form_tag  thoughts_path, :method => 'get', :class => 'nav navbar-nav navbar-form navbar-left', :id => 'thoughts_search' do %>
+					<div class="form-group">
+						<%= text_field_tag :search, params[:search], :class => 'form-control', :placeholder => 'Search' %>
+						<%= submit_tag "Search", :name => nil %>
+					</div>
+					<% end %>
 	
-					<form class="nav navbar-nav navbar-form navbar-left" role="search">
+<!-- 				<form class="nav navbar-nav navbar-form navbar-left" role="search">
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Search">
 						</div>
 					</form>
-	
+-->	
 					<ul id="main-menu" class="nav navbar-nav navbar-right">
 						
 						<% if current_user %>
-						<li><p>Welcome back <%= link_to current_user.first_name, current_user %></p></li>
+						<li><p class="navbar-welcome">Welcome back <%= link_to current_user.first_name, current_user %></p></li>
 						<li class="<%= 'active' if current_page?(favorite_thoughts_path) %>"><%= link_to "Favorite", favorite_thoughts_path %></li>
 						<li class="<%= 'active' if current_page?(edit_user_registration_path) %>"><%= link_to "Settings", edit_user_registration_path %></li>
 						<li class="<%= 'active' if current_page?(destroy_user_session_path) %>"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 	
 	def show
 		if params[:id] == "anonymus"
-			@user = User.find(params[:id])
+#			@user = User.find(params[:id])
 			@thoughts = Thought.where('anonymus = ?', true)
 		else
 	    	@user = User.find(params[:id])

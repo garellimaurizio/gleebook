@@ -1,5 +1,5 @@
 <div class="container">
-		<h4>Thought of <%= @user.username %></h4>
+		<h4>Thought of <%= @user ? @user.username : "anonymous" %></h4>
 	    <div id="grid" class="row">
 
 			<% @thoughts.each do |t| %>

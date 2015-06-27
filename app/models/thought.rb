@@ -7,5 +7,15 @@ class Thought < ActiveRecord::Base
 	
 	has_many :liked_thoughts, dependent: :destroy
 	has_many :favorite_thoughts, dependent: :destroy
+	
+	def self.search(search)
+		  if search
+		    where('title LIKE ?', "%#{search}%")
+		  else
+		    scoped
+		  end
+	end
+	
+	
 
 end
