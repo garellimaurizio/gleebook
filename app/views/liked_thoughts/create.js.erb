@@ -1,2 +1,2 @@
-$("#edit_liked_thought").html("<%= escape_javascript(render('thought/like')) %>")
-$("#followers").html('<%= @user.followers.count %>')
+$("#like-section-<%= @thought.id %>").html("<%= escape_javascript(render partial: 'thoughts/heart_button', locals: { thought: @thought } ) %>"); 
+$('#like-btn-<%= @thought.id %>').addClass('heart-btn-liked');

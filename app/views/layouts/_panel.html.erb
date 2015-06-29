@@ -19,8 +19,10 @@
 							</div>
 							<div class="col-sm-6 text-right">
 
-								<%= render partial: 'thoughts/like', locals: {thought: panel} %>
-								<%= render partial: 'thoughts/unlike', locals: {thought: panel} %>						
+
+						<div id="like-section-<%= panel.id %>">
+								<%= render partial: 'thoughts/heart_button', locals: {thought: panel} %>
+						</div>
 
 							</div>
 						</div>

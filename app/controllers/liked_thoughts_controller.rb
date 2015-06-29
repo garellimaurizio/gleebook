@@ -16,7 +16,16 @@ class LikedThoughtsController < ApplicationController
 			@thought.decrement!(:like_counter, by = 1)
 			@liked_thought.destroy
 		end
-		redirect_to @thought
+#		redirect_to @thought
+		respond_to do |format|
+#			format.html { redirect_to @thought }
+#format.html
+			format.js
+		end
+
+
+
+
 
 #		if (action_name == 'index')
 #			redirect_to :controller => 'thoughts', :action => 'index'
@@ -53,7 +62,7 @@ class LikedThoughtsController < ApplicationController
 		@liked_thought.destroy
 		
 		respond_to do |format|
-			format.html { redirect_to @thought }
+#			format.html { redirect_to @thought }
 			format.js
 		end
 	end

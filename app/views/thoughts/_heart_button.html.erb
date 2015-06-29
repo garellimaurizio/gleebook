@@ -4,13 +4,12 @@
 	<% user = current_user; %>
 <% end %>
 
-
-
 <% if !(user.liked_thoughts.find_by(thought_id: thought.id)) %>
 	<%= form_for(user.liked_thoughts.build(thought_id: thought.id), remote: true) do |f| %>
-	<div id="like-section-<%= thought.id %>">
 		<%= render partial: 'thoughts/like_button', locals: {thought: thought} %>
-	</div>
+	<% end %>
+<% else %>
+	<%= form_for(current_user.liked_thoughts.find_by(thought_id: thought.id), html: { method: :delete }, remote: true) do |f|%>
+		<%= render partial: 'thoughts/unlike_button', locals: {thought: thought} %>
 	<% end %>
 <% end %>
-
