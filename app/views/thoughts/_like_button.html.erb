@@ -1,5 +1,2 @@
 <div><%= hidden_field_tag :thought_id, thought.id %></div>
-		<p>
-			<%= thought.like_counter %>
-			<button type="submit" name="commit" id="like-btn-<%= thought.id %>" class="btn btn-default btn-xs heart-btn"><i class="fa fa-heart"></i></button>
-		</p>
+<p><%= thought.like_counter %><button type="submit" name="commit" id="like-btn-<%= thought.id %>" class="btn btn-default btn-xs heart-btn"><i class="fa fa-heart"></i></button></p>

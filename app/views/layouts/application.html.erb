@@ -26,7 +26,7 @@
 
 <body>
 	<%= render 'layouts/navbar' %>
-<%= params.inspect %>
+<%-# params.inspect -%>
     <%= render partial: 'layouts/flash_messages', flash: flash %>
     <script>
 	    setTimeout("$('.alert-dismissible').fadeOut('slow')", 1000)
@@ -36,9 +36,7 @@
 	<%= yield %>
 	<%= render 'layouts/footer' %>
 	
-	
-	<!-- Magnific Popup -->
-	<script src='http://dimsemenov-static.s3.amazonaws.com/dist/jquery.magnific-popup.min.js'></script>
+	<!-- Ajax redirect on unauthorized user -->
 	<script>
 		$(document).ajaxError( function(event, xhr){
 			if (xhr.status == 401) {
@@ -46,6 +44,11 @@
 				}
     });
 	</script>
+	
+	
+	<!-- Magnific Popup -->
+	<script src='http://dimsemenov-static.s3.amazonaws.com/dist/jquery.magnific-popup.min.js'></script>
+	
 
 	<script id="jsbin-javascript">
 		/**

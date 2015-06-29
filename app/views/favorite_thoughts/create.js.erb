@@ -1,0 +1,2 @@
+$("#favorite-section-<%= @thought.id %>").html("<%= escape_javascript(render partial: 'thoughts/favorite', locals: { thought: @thought } ) %>"); 
+$('#favorite-btn-<%= @thought.id %>').addClass('star-btn-liked');

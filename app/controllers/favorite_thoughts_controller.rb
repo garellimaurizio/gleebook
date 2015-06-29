@@ -16,7 +16,11 @@ class FavoriteThoughtsController < ApplicationController
 		else
 			@favorite_thought.destroy
 		end
-		redirect_to @thought
+
+		respond_to do |format|
+#			format.html { redirect_to @thought }
+			format.js
+		end
 	end
 		
 	def destroy
@@ -27,7 +31,7 @@ class FavoriteThoughtsController < ApplicationController
 		@favorite_thought.destroy
 		
 		respond_to do |format|
-			format.html { redirect_to @thought }
+#			format.html { redirect_to @thought }
 			format.js
 		end
 	end

@@ -1,0 +1,18 @@
+
+<% if !current_user %>
+	<% 	user = User.find(1); %>
+<% else %>
+	<% user = current_user; %>
+<% end %>
+
+
+
+<% if !(user.favorite_thoughts.find_by(thought_id: thought.id)) %>
+	<%= form_for(user.favorite_thoughts.build(thought_id: thought.id)) do |f| %>
+		<div><%= hidden_field_tag :thought_id, thought.id %></div>
+		<p>
+			<button type="submit" name="commit" class="btn btn-default btn-xs star-btn"><i class="fa fa-star"></i></button>
+		</p>
+	<% end %>
+<% end %>
+

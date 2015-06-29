@@ -53,23 +53,8 @@ class ThoughtsController < ApplicationController
 	
 	def like
 		@thought = Thought.find(params[:id])
-##		(@thought.like_counter == 0) ? @thought.increment!(:like_counter, by = 1) : @thought.decrement!(:like_counter, by = 1)
 		@thought.increment!(:like_counter, by = 1)
 		redirect_to @thought
-		
-#		@thought = Thought.find(params[:id])
-#		@user = current_user
-#		@liked_thought = LikedThought.new(user_id: @user.id , thought_id: @thought.id)
-#		if (@liked_thought.save)
-#			@thought.increment!(:like_counter, by = 1)
-#		else
-#			@thought.decrement!(:like_counter, by = 1)
-#			@liked_thought.destroy
-#		end
-#		redirect_to @thought
-		
-		
-		
 	end
 	
 	

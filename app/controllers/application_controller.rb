@@ -18,7 +18,8 @@ class ApplicationController < ActionController::Base
 	devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password, :username, :first_name, :last_name, :sex, :birthday) }
   end
   
-helper_method :check_user_ownership?  
+  helper_method :check_user_ownership?  
+
 end
 
 

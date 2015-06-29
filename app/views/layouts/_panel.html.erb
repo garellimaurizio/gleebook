@@ -8,8 +8,9 @@
 								<% if check_user_ownership?(panel) %>
 									<%= link_to '<i class="fa fa-times"></i>'.html_safe, thought_path(panel), method: :delete, data: {confirm: "Are you sure?"}, class: "pull-right" %>
 								<% else %>
-									<%= render partial: 'thoughts/favorite', locals: {thought: panel} %>
-									<%= render partial: 'thoughts/unfavorite', locals: {thought: panel} %>
+									<div id="favorite-section-<%= panel.id %>">
+										<%= render partial: 'thoughts/favorite', locals: {thought: panel} %>
+									</div>
 								<% end %>
 							</div>
 						</div>
@@ -18,11 +19,9 @@
 								<p><%= panel.visit_counter %> views</p>
 							</div>
 							<div class="col-sm-6 text-right">
-
-
-						<div id="like-section-<%= panel.id %>">
-								<%= render partial: 'thoughts/heart_button', locals: {thought: panel} %>
-						</div>
+								<div id="like-section-<%= panel.id %>">
+									<%= render partial: 'thoughts/like', locals: {thought: panel} %>
+								</div>
 
 							</div>
 						</div>

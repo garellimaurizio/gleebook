@@ -1,18 +1,21 @@
-
 <% if !current_user %>
-	<% 	user = User.find(1); %>
+	<% 	user = User.new(); %>
 <% else %>
 	<% user = current_user; %>
 <% end %>
 
 
-
 <% if !(user.favorite_thoughts.find_by(thought_id: thought.id)) %>
-	<%= form_for(user.favorite_thoughts.build(thought_id: thought.id)) do |f| %>
+	<%= form_for(user.favorite_thoughts.build(thought_id: thought.id), remote: true) do |f| %>
 		<div><%= hidden_field_tag :thought_id, thought.id %></div>
 		<p>
-			<button type="submit" name="commit" class="btn btn-default btn-xs star-btn"><i class="fa fa-star"></i></button>
+			<button type="submit" name="commit" id="favorite-btn-<%= thought.id %>" class="btn btn-default btn-xs star-btn"><i class="fa fa-star"></i></button>
+		</p>
+	<% end %>
+<% else %>
+	<%= form_for(current_user.favorite_thoughts.find_by(thought_id: thought.id), html: { method: :delete }, remote: true) do |f|%>
+		<p>
+			<button type="submit" name="commit" id="favorite-btn-<%= thought.id %>" class="btn btn-default btn-xs star-btn star-btn-liked"><i class="fa fa-star"></i></button>
 		</p>
 	<% end %>
 <% end %>
-
