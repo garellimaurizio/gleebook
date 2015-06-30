@@ -10,7 +10,7 @@ class Thought < ActiveRecord::Base
 	
 	def self.search(search)
 		  if search
-		    where('title LIKE ?', "%#{search}%")
+		    where('title LIKE ? OR content LIKE ?', "%#{search}%", "%#{search}%")
 		  else
 		    scoped
 		  end

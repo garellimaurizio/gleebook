@@ -13,6 +13,9 @@ class FavoriteThoughtsController < ApplicationController
 		@favorite_thought = FavoriteThought.new(user_id: @user.id, thought_id: @thought.id)
 		if (@favorite_thought.valid?)
 			@favorite_thought.save
+#			if action_name != 'show'
+#				@thought.increment!(:visit_counter, by = 1)
+#			end
 		else
 			@favorite_thought.destroy
 		end

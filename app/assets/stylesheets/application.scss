@@ -88,7 +88,6 @@ body { padding-top: 70px; }
 
 .navbar-fixed-top {
 	.navbar-welcome {
-//		@extend a
 		font-size: 14px;
 		line-height: 20px;
 		padding: 15px 15px 0 15px;
@@ -98,6 +97,7 @@ body { padding-top: 70px; }
 		}
 	}
 }
+
 
 
 .panel-primary {
@@ -201,7 +201,7 @@ h2{
 	}
 
 
-.user_sex{
+.user_sex {
 	text-align: left;
 	
 	.radio_buttons{
@@ -405,6 +405,9 @@ label {
     }
 }
 
+#thoughts_search {
+	max-width: auto;
+}
 
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
@@ -422,8 +425,18 @@ label {
 
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
+	
+	#thoughts_search {
+		max-width: 100% !important;
+	}
+}
 
+@media (min-width: 768px) {
+	
+	#thoughts_search {
+		max-width: 220px;
+	}
 }
 
 /* Portrait tablets and small desktops */
@@ -433,6 +446,7 @@ label {
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
+	
 
 }
 

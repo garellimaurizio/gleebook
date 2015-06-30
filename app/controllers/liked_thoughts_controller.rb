@@ -1,8 +1,6 @@
 class LikedThoughtsController < ApplicationController
 	before_action :authenticate_user!
 	
-
-	
 	def create
 		puts params.inspect
 
@@ -12,6 +10,7 @@ class LikedThoughtsController < ApplicationController
 		if (@liked_thought.valid?)
 			@liked_thought.save
 			@thought.increment!(:like_counter, by = 1)
+#			@thought.increment!(:visit_counter, by = 1)
 		else
 			@thought.decrement!(:like_counter, by = 1)
 			@liked_thought.destroy

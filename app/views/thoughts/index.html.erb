@@ -1,4 +1,4 @@
-    <div class="container">
+    <div id = "thoughts" class="container">
 <!--       
          <div class="filter-options">
           <button class="btn btn-default" data-group="wallpaper">Wallpapers</button>
@@ -8,18 +8,9 @@
         </div>      
 -->      
             
-	    <div id="grid" class="row">
-
-			<% @thoughts.each do |t| %>
-		    
-		    <div id="thoughts" class="col-xs-6 col-sm-4 col-md-3" data-groups='["photography"]'>
-				<%= render partial: 'layouts/panel', object: t %>
-		    </div>
-		    
-		    <% end %>
-          <!-- sizer -->
-      <div class="col-xs-6 col-sm-4 col-md-3 shuffle_sizer"></div>          
-          
-          
-	    </div><!-- /#grid -->
+	    <%= render 'thoughts' %>
+	    
+	    
+	    
+	    
     </div><!-- /.container -->
