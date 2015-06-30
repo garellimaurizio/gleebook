@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="row">
+	<div class="row row-table">
 
 		<% if flash[:notice] %>
 			<div class="flash-notice">
@@ -7,16 +7,24 @@
 			</div>
 		<% end %>
 		
-		<div class="col-xs-1">
-			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		<div class="col-xs-1 prev-next">
+			
+			<% unless  @thought.id == Thought.first.id   %>
+				<%= link_to '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>'.html_safe, Thought.get_previous_thought(@thought)  %>
+			<% end %>
+			
+			
 		</div>
 		
-		<div class="col-xs-6">
+		<div class="col-xs-10 col-sm-10 col-md-6">
 			<%= render partial: 'layouts/panel', object: @thought %>
 		</div>
 		
-		<div class="col-xs-1">
-			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		<div class="col-xs-1  prev-next">
+			
+			<% unless  @thought.id == Thought.last.id   %>
+				<%= link_to  '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>'.html_safe, Thought.get_next_thought(@thought, current_user) %>
+			<% end %>
 		</div>
 
 

@@ -16,6 +16,15 @@ class Thought < ActiveRecord::Base
 		  end
 	end
 	
+	def self.get_previous_thought(current_thought)
+		Thought.where("thoughts.id < ? ", current_thought.id).order('created_at asc').last
+	end
+	
+	def self.get_next_thought(current_thought, current_user)
+		Thought.where("thoughts.id > ? ", current_thought.id).order('created_at asc').first
+	end
+
+	
 	
 
 end
